@@ -1,0 +1,47 @@
+<html>
+
+
+<head>
+	<meta charset = "utf-8">
+	<title> Mario Maker Endless Bingo </title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="mmbingo.css";
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">   
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+
+	<script type="text/javascript" src = "mmbingo.js"></script>
+
+</head>
+
+<script type="text/javascript">
+
+$(document).click(function(event) {
+	if ($(event.target)[0].cellIndex >= 0){
+		$(event.target).toggleClass("done");
+	}
+});
+
+
+</script>
+
+
+<body onload="bingoBoard(challenges)">
+
+<h1> Mario Maker Endless Bingo! </h1>
+
+
+<table id="bingoBoard"> </table>
+
+<center> <button type="button" id = "newboard" onclick = "bingoBoard(challenges)">New Board</button> </center>
+
+<h3> Suggested Rules </h3>
+<h4> Here's a little bit of guidance for how to play. Feel free to include or exclude any of these rules. </h4>
+
+<b> 1. </b> Skips allowed. <br>
+<b> 2. </b> If you lose all your lives, you can start a new run with the same board. Or you can start fresh with a new board if you want it to be extra challenging. <br>
+<b> 3. </b> A level is considered a water level (snow level, night level, etc) if at least one of the two sections has that theme. <br>
+
+
+</body>

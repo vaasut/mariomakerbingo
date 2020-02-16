@@ -1,0 +1,22 @@
+#bingoBoard{
+	border: 2px solid black;
+}
+
+#bingoBoard tr:nth-child(even) {
+  background-color: #eee;
+}
+#bingoBoard tr:nth-child(odd) {
+  background-color: #fff;
+}
+#bingoBoard td{
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.done{
+	background-color: #ffcccc;
+}
+
+#newboard{
+	margin: 10px;
+}
