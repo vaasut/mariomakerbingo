@@ -1,7 +1,7 @@
 let challenges = 
 ["Complete a snow level",
 "Complete a level while riding Yoshi",
-"Collect three bonus one-ups in a level (x5)",
+"Collect three bonus one-ups in a level (x3)",
 "Complete an SMB 3 level",
 "Defeat Boom-Boom in three different levels",
 "Get the world record on a level (x3)",
@@ -13,7 +13,7 @@ let challenges =
 "Complete an autoscroller level",
 "Collect a key in five different levels",
 "Complete 5 levels",
-"Complete 15 levels",
+"Complete 10 levels",
 "Complete a specific challenge level",
 "Complete a level with exactly 42 coins",
 "Complete a puzzle level (any level with the puzzle tag)",
@@ -44,14 +44,14 @@ function bingoBoard(challenges){
 
 	if (table.childNodes.length == 2){ //reset board
 		table.removeChild(table.childNodes[1]);
-		challenges[12] = challenges[24];
+		challenges[12] = challenges[challenges.length-1];
 		challenges.pop();
 	}
 	challenges = shuffleSquares(challenges);
 	challenges.push("Free Space");
 	let temp = challenges[12];
-	challenges[12] = challenges[24];
-	challenges[24] = temp;
+	challenges[12] = challenges[challenges.length-1];
+	challenges[challenges.length-1] = temp;
 
 	
 	for (let i = 0; i < 5; i ++) {
