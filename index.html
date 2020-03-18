@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset = "utf-8">
-	<title> Mario Maker Endless Bingo </title>
+	<title> Mario Maker 2 Endless Bingo </title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="mmbingo.css";
 
@@ -22,19 +22,17 @@ $(document).click(function(event) {
 		$(event.target).toggleClass("done");
 	}
 });
-
-
 </script>
 
 
-<body onload="bingoBoard(challenges)">
+<body onload="bingoBoard()">
 
-<h1> Mario Maker Endless Bingo! </h1>
+<h1> Mario Maker 2 Endless Bingo! </h1>
 
 
 <table id="bingoBoard"> </table>
 
-<center> <button type="button" id = "newboard" onclick = "bingoBoard(challenges)">New Board</button> </center>
+<center> <button type="button" id = "newboard" onclick = "bingoBoard()">New Board</button> </center>
 
 <h3> Suggested Rules </h3>
 <h4> Here's a little bit of guidance for how to play. Feel free to include or exclude any of these rules. </h4>
@@ -44,40 +42,86 @@ $(document).click(function(event) {
 <b> 3. </b> To check if a level is a water level (snow level, castle level, etc) check if the overworld displays that theme. <br>
 
 <h3> Possible Challenges </h3>
-<h4> Here you can adjust which challenges can appear on the bingo board. If you select fewer than 24, it will randomly select the rest. </h4>
+<h4> Below you can adjust which challenges can appear on the bingo board. You need to have at least 24 challenges selected. </h4>
 
-<b> Complete a Level of Specific Type Challenges </b> <br>
-  <input type="checkbox" name="challenge1" checked>
-  <label for="challenge1"> Complete a Snow Level </label><br>
-  <input type="checkbox" name="challenge2" checked>
-  <label for="challenge2"> Complete a Castle Level </label><br>
-  <input type="checkbox" name="challenge3">
-  <label for="challenge3"> Complete an Underground Level </label><br>
-  <input type="checkbox" name="challenge4">
-  <label for="challenge4"> Complete an Airship Level </label><br>
-  <input type="checkbox" name="challenge5" checked>
-  <label for="challenge5"> Complete a Water Level </label><br> <br>
+<b id="test"> Complete a Level of Specific Theme </b> <br>
+  <input type="checkbox" id="challenge1" name ="challenge1" checked>
+  <label for="challenge1" id="challenge1label"> Complete a Snow Level </label><br>
+  <input type="checkbox" id="challenge2" name="challenge2" checked>
+  <label for="challenge2" id="challenge2label"> Complete a Castle Level </label><br>
+  <input type="checkbox" id="challenge3" name="challenge3">
+  <label for="challenge3" id="challenge3label"> Complete an Underground Level </label><br>
+  <input type="checkbox" id="challenge4" name="challenge4">
+  <label for="challenge4" id="challenge4label"> Complete an Airship Level </label><br>
+  <input type="checkbox" id="challenge5" name="challenge5" checked>
+  <label for="challenge5" id="challenge5label"> Complete a Water Level </label><br>
+  <input type="checkbox" id="challenge6" name="challenge6" checked>
+  <label for="challenge6" id="challenge6label"> Complete a Boo House Level </label><br> <br>
 
-  <input type="checkbox" name="challenge6" checked>
-  <label for="challenge6"> Complete an SMB 3 Level</label><br>
-  <input type="checkbox" name="challenge7">
-  <label for="challenge7"> Complete a New Super Mario Bros. Level</label><br>
-  <input type="checkbox" name="challenge8" checked>
-  <label for="challenge8"> Complete a Night Level</label><br>
-  <input type="checkbox" name="challenge9">
-  <label for="challenge9" checked> Complete a Speedrun Level (any level with the speedrun tag) </label><br>
-  <input type="checkbox" name="challenge10">
-  <label for="challenge10"> Complete a Complete a Puzzle Level (any level with the puzzle tag) </label><br> <br> 
+  <input type="checkbox" id="challenge7" name="challenge7" checked>
+  <label for="challenge7" id="challenge7label"> Complete an SMB 3 Level</label><br>
+  <input type="checkbox" id="challenge8" name="challenge8">
+  <label for="challenge8" id="challenge8label"> Complete a New Super Mario Bros. Level</label><br>
+  <input type="checkbox" id="challenge9" name="challenge9" checked>
+  <label for="challenge9" id="challenge9label"> Complete a Night Level</label><br><br>
 
- <b> Complete Level with Specific Powerup Challenges </b> <br>
-  <input type="checkbox" name="challenge11" checked>
-  <label for="challenge11"> Complete a level with the fire flower powerup </label><br>
-  <input type="checkbox" name="challenge12" checked>
-  <label for="challenge12"> Complete a level while riding Yoshi </label><br>
-  <input type="checkbox" name="challenge13" checked >
-  <label for="challenge13"> Complete a level while wearing a shell helmet </label><br>
-  <input type="checkbox" name="challenge14" checked>
-  <label for="challenge14"> Complete a level with the Cat powerup or Tanooki powerup </label><br>
-  <input type="checkbox" name="challenge15">
-  <label for="challenge15"> Complete a level as Link, Superball Mario, or Giant Mario </label><br> <br>
+  <input type="checkbox" id="challenge10" name="challenge10">
+  <label for="challenge10" id="challenge10label"> Complete a Speedrun Level (any level with the speedrun tag) </label><br>
+  <input type="checkbox" id="challenge11" name="challenge11">
+  <label for="challenge11" id="challenge11label"> Complete a Complete a Puzzle Level (any level with the puzzle tag) </label><br>
+  <input type="checkbox" id="challenge12" name="challenge12" checked>
+  <label for="challenge12" id="challenge12label"> Complete a clear condition level </label><br> 
+   <input type="checkbox" id="challenge13" name="challenge13" checked>
+  <label for="challenge13" id="challenge13label"> Complete an autoscroller level </label><br> <br> 
+
+ <b> Complete Level with Powerup or Item </b> <br>
+  <input type="checkbox" id="challenge14" name="challenge14" checked>
+  <label for="challenge14" id="challenge14label"> Complete a level with the fire flower powerup </label><br>
+  <input type="checkbox" id="challenge15" name="challenge15" checked>
+  <label for="challenge15" id="challenge15label"> Complete a level with the Cat powerup or Tanooki powerup </label><br>
+  <input type="checkbox" id="challenge16" name="challenge16" checked>
+  <label for="challenge16" id="challenge16label"> Complete a level as Link, Superball Mario, or Giant Mario </label><br> <br>
+
+  <input type="checkbox" id="challenge17" name="challenge17" checked>
+  <label for="challenge17" id="challenge17label"> Complete a level while wearing a shell helmet </label><br>
+  <input type="checkbox" id="challenge18" name="challenge18" checked>
+  <label for="challenge18" id="challenge18label"> Complete a level while riding Yoshi </label><br>
+  <input type="checkbox" id="challenge19" name="challenge19">
+  <label for="challenge19" id="challenge19label"> Complete a level while carrying a pow block </label><br>
+  <input type="checkbox" id="challenge20" name="challenge20" checked>
+  <label for="challenge20" id="challenge20label"> Complete a level while carrying a koopa shell </label><br> <br>
+
+<b> Life and Coin Challenges </b> <br>
+  <input type="checkbox" id="challenge21" name="challenge21" checked>
+  <label for="challenge21" id="challenge21label"> Complete a level and have exactly 42 coins </label><br>
+  <input type="checkbox" id="challenge22" name="challenge22" checked>
+  <label for="challenge22" id="challenge22label"> Complete a level and have exactly 99 coins </label><br>
+  <input type="checkbox" id="challenge23" name="challenge23" checked>
+  <label for="challenge23" id="challenge23label"> Collect 3 bonus 1-Ups in a level </label><br>
+  <input type="checkbox" id="challenge24" name="challenge24" checked>
+  <label for="challenge24" id="challenge24label"> Have over 12 lives (22 for expert, 32 for super expert) </label><br> <br>
+
+<b> Challenges within Levels </b> <br>
+  <input type="checkbox" id="challenge25" name="challenge25" checked>
+  <label for="challenge25" id="challenge25label"> Defeat Boom-Boom in a level that you complete </label><br>
+  <input type="checkbox" id="challenge26" name="challenge26">
+  <label for="challenge26" id="challenge26label"> Defeat Bowser in a level that you complete </label><br>
+  <input type="checkbox" id="challenge27" name="challenge27" checked>
+  <label for="challenge27" id="challenge27label"> Defeat the Angry Sun in a level that you complete </label><br>
+  <input type="checkbox" id="challenge28" name="challenge28" checked>
+  <label for="challenge28" id="challenge28label"> Collect a key in a level that you complete </label><br>
+  <input type="checkbox" id="challenge29" name="challenge29" checked>
+  <label for="challenge29" id="challenge29label"> Ride in a clown car in a level that you complete </label><br><br>
+
+<b> Misc. Challenges </b> <br>
+  <input type="checkbox" id="challenge30" name="challenge30" checked>
+  <label for="challenge30" id="challenge30label"> Complete 5 levels </label><br>
+  <input type="checkbox" id="challenge31" name="challenge31" checked>
+  <label for="challenge31" id="challenge31label"> Complete 10 levels </label><br>
+  <input type="checkbox" id="challenge32" name="challenge32" checked>
+  <label for="challenge32" id="challenge32label"> Complete a level on your first try </label><br>
+  <input type="checkbox" id="challenge33" name="challenge33" checked>
+  <label for="challenge33" id="challenge33label"> Get the World Record for a level </label><br>
+
+
 </body>

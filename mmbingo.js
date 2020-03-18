@@ -1,28 +1,29 @@
-let challenges = 
-["Complete a snow level",
-"Complete a level while riding Yoshi",
-"Collect three bonus one-ups in a level",
-"Complete an SMB 3 level",
-"Defeat Boom-Boom",
-"Get the world record on a level",
-"Complete a castle level",
-"Complete a level while wearing a shell helmet",
-"Complete a level while carrying a pow block",
-"Ride in a clown car in a level that you complete",
-"Complete a water level",
-"Complete an autoscroller level",
-"Collect a key in a level that you complete",
-"Complete 5 levels",
-"Complete 10 levels",
-"Complete a specific challenge level",
-"Complete a level with exactly 42 coins",
-"Complete a level with exactly 99 coins",
-"Complete a level on your first try",
-"Complete a level with the fire flower powerup",
-"Complete a speedrun level (any level with the speedrun tag)",
-"Have over 12 lives (22 for expert, 32 for super expert)",
-"Complete a night level (x3)",
-"Defeat the angry sun"]
+NUM_CHALLENGES = 33;
+
+
+function getChallenges(){
+	let challenges = [];
+	let out = [];
+	let name = ""
+	for (let i = 1; i <= NUM_CHALLENGES; i++){
+		name = "challenge" + i;
+		label_name = name + "label";
+		if (document.getElementById(name).checked){
+			challenges.push(document.getElementById(label_name).innerHTML);
+		}
+		else{
+			out.push(document.getElementById(label_name).innerHTML);
+		}
+	}
+	if (challenges.length < 24){
+		alert("Not enough challenges to fill Bingo Board! Adding Extra Challenges!");
+		while (challenges.length < 24){
+			challenges.push(out.pop());
+		}
+	}
+	return challenges;
+}
+
 
 function shuffleSquares(challenges){
 	let randomSpot = 0;
@@ -33,20 +34,20 @@ function shuffleSquares(challenges){
 		challenges[i] = challenges[randomSpot];
 		challenges[randomSpot] = temp;
 	}
-	console.log(challenges)
+	//console.log(challenges)
 	return challenges;
 }
 
 
-function bingoBoard(challenges){
+function bingoBoard(){
+	challenges = getChallenges();
 	let table = document.getElementById("bingoBoard");
 	let tableBody = document.createElement('tbody');
 
 	if (table.childNodes.length == 2){ //reset board
 		table.removeChild(table.childNodes[1]);
-		challenges[12] = challenges[challenges.length-1];
-		challenges.pop();
 	}
+
 	challenges = shuffleSquares(challenges);
 	challenges.push("Free Space");
 	let temp = challenges[12];
@@ -65,7 +66,7 @@ function bingoBoard(challenges){
 	};
 
 	if (table.childNodes.length == 2){
-		console.log(table.childNodes);
+		//console.log(table.childNodes);
 		table.removeChild(table.childNodes[1]);
 	}
 	table.appendChild(tableBody);
