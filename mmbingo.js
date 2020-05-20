@@ -1,4 +1,4 @@
-NUM_CHALLENGES = 33;
+NUM_CHALLENGES = 36;
 
 
 function getChallenges(){
